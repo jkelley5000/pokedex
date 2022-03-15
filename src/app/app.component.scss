@@ -1,0 +1,60 @@
+@media (max-width: 550px) {
+  .main-page {
+    .top-nav {
+      .poke-ball-container {
+        margin-right: 0 !important;
+      }
+
+      .top-nav-menu-items {
+        display: none;
+      }
+    }
+  }
+}
+
+.main-page {
+  height: 100%;
+
+  .top-nav {
+    padding: 10px;
+    background-color: #dddddd;
+    color: #3e3e3e;
+    display: flex;
+    align-items: normal;
+
+    .poke-ball-container {
+      margin-right: 20px;
+      width: 50px;
+
+      .poke-ball {
+        width: 50px;
+      }
+    }
+
+    .top-nav-menu-items {
+      padding-top: 5px;
+      
+      .mat-button {
+        padding-left: 0;
+  
+        .poke-ball {
+          margin-right: 5px;
+          width: 25px;
+        }
+  
+        mat-icon {
+          margin-right: 5px;
+          color: #3e3e3e;
+        }
+  
+        span {
+          color: #3e3e3e;
+        }
+      }
+    }
+  }
+
+  .page-content {
+    padding: 20px;
+  }
+}

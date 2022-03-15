@@ -1,0 +1,41 @@
+.profile {
+  h1 {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-right: 20px;
+      cursor: pointer;
+
+      mat-icon {
+        font-size: 50px;
+      }
+    }
+  }
+  h1, h2 {
+    text-decoration: underline;
+  }
+
+  img {
+    width: 200px;
+  }
+
+  p {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+
+    span {
+      font-weight: 400;
+    }
+  }
+
+  ul {
+    margin-top: 0;
+  }
+
+  table {
+    width: 100%;
+  }
+}

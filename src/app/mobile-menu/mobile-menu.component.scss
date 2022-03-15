@@ -1,0 +1,14 @@
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 550px) {
+  .mobile-menu {
+    display: block;
+
+    .mobile-menu-open-button {
+      margin-top: 5px;
+      padding-left: 0;
+    }
+  }
+}

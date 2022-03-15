@@ -1,0 +1,23 @@
+.mat-list {
+  margin-bottom: 30px;
+}
+
+.mat-list, .mat-selection-list {
+  height: 450px;
+  overflow: hidden;
+  overflow-y: auto;
+  border: solid 1px #3e3e3e;
+  border-radius: 5px;
+
+  mat-list-item {
+    cursor: pointer;
+
+    &:hover {
+      background-color: #dddddd;
+    }
+
+    mat-icon {
+      margin-right: 5px;
+    }
+  }
+}

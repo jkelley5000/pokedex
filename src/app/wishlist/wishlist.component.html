@@ -1,0 +1,31 @@
+<p>
+  Pokemon Wishlist
+  <mat-icon
+    matTooltip="Add Pokemon to your wish list by clicking the add icon in the Pokemon main list."
+    matTooltipPosition="right"
+  >
+    info
+  </mat-icon>
+</p>
+
+<mat-list>
+  <mat-list-item *ngIf="wishList.length === 0">
+    <p>
+      Add Pokemon to your wish list by clicking the add icon in the 
+      <a [routerLink]="['/pokemon']">Pokemon</a> 
+      main list.
+    </p>
+  </mat-list-item>
+  <mat-list-item 
+    [routerLink]="['/stats/', pokemon]"
+    *ngFor="let pokemon of wishList"
+  >
+    <mat-icon
+      matTooltip="View {{ pokemon }} stats"
+      matTooltipPosition="right"
+    >
+      insert_chart_outlined
+    </mat-icon>
+    {{ pokemon }}
+  </mat-list-item>
+</mat-list>

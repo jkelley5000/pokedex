@@ -1,0 +1,46 @@
+<div class="mobile-menu">
+  <button 
+    mat-button 
+    [matMenuTriggerFor]="mobileMenu"
+    class="mobile-menu-open-button"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #mobileMenu="matMenu">
+    <button 
+      mat-button 
+      class="menu-button"
+      [routerLink]="['/pokemon']"
+    >
+      <mat-icon> table_chart</mat-icon>
+      <span>Pokemon!</span>
+    </button>
+
+    <button 
+      mat-button 
+      class="menu-button"
+      [routerLink]="['/caught']"
+    >
+      <mat-icon>check_circle_outline</mat-icon>
+      <span>Caught List</span>
+    </button>
+
+    <button 
+      mat-button 
+      class="menu-button"
+      [routerLink]="['/wishlist']"
+    >
+      <mat-icon>shopping_cart</mat-icon>
+      <span>Wish List</span>
+    </button>
+
+    <button 
+      mat-button
+      class="menu-button"
+      [routerLink]="['/compare']"
+    >
+      <mat-icon>compare_arrows</mat-icon>
+      <span>Compare</span>
+    </button>
+  </mat-menu>
+</div>

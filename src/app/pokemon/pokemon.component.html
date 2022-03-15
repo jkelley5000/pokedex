@@ -1,0 +1,146 @@
+<form class="example-form">
+  <mat-form-field 
+    class="example-full-width" 
+    appearance="fill"
+  >
+    <mat-label>Search Pokemon</mat-label>
+    <input
+      type="search"
+      matInput
+      placeholder=""
+      (keyup)="searchPokemon($event)"
+    >
+  </mat-form-field>
+</form>
+
+<!-- https://pokeapi.co/api/v2/pokedex/{id or name}/ -->
+
+<table 
+  mat-table 
+  [dataSource]="dataSource" 
+  class="mat-elevation-z8"
+>
+  <ng-container matColumnDef="stats">
+    <th 
+      mat-header-cell 
+      *matHeaderCellDef
+    >
+      Stats
+    </th>
+    <td 
+      mat-cell 
+      *matCellDef="let element"
+      [routerLink]="['/stats/', element.name]"
+    >
+      <mat-icon
+        matTooltip="View {{ element.name }} stats"
+        matTooltipPosition="right"
+      >
+        insert_chart_outlined
+      </mat-icon>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th 
+      mat-header-cell 
+      *matHeaderCellDef
+    >
+      Name
+    </th>
+    <td 
+      mat-cell 
+      *matCellDef="let element"
+    >
+      {{element.name}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="url">
+    <th 
+      mat-header-cell 
+      *matHeaderCellDef
+    >
+      URL
+    </th>
+    <td 
+      mat-cell 
+      *matCellDef="let element"
+    >
+      {{element.url}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="caught">
+    <th 
+      mat-header-cell 
+      *matHeaderCellDef
+    >
+      Add to Caught List
+    </th>
+    <td 
+      mat-cell 
+      *matCellDef="let element"
+    >
+    <mat-icon
+      *ngIf="!checkIfPokemonInCaughtList(element.name)"
+      matTooltip="Add {{ element.name }} to Caught List"
+      matTooltipPosition="right"
+      (click)="addPokemonToCaughtList(element.name)"
+    >
+      library_add
+    </mat-icon>
+    <mat-icon 
+      *ngIf="checkIfPokemonInCaughtList(element.name)"
+      matTooltip="Remove {{ element.name }} from Caught List"
+      matTooltipPosition="right"
+      (click)="removePokemonFromCaughtList(element.name)"
+    >check_circle_outline</mat-icon>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="wish_list">
+    <th 
+      mat-header-cell 
+      *matHeaderCellDef
+    >
+      Add to Wishlist
+    </th>
+    <td
+      mat-cell 
+      *matCellDef="let element"
+    >
+      <mat-icon 
+        *ngIf="!checkIfPokemonInWishList(element.name)"
+        matTooltip="Add {{ element.name }} to Wishlist"
+        matTooltipPosition="left"
+        (click)="addPokemonToWishList(element.name)"
+      >
+        library_add
+      </mat-icon>
+      <mat-icon 
+        *ngIf="checkIfPokemonInWishList(element.name)"
+        matTooltip="Remove {{ element.name }} from Wishlist"
+        matTooltipPosition="left"
+        (click)="removePokemonFromWishList(element.name)"
+      >check_circle_outline</mat-icon>
+    </td>
+  </ng-container>
+
+  <tr 
+    mat-header-row 
+    *matHeaderRowDef="displayedColumns"
+  ></tr>
+  <tr 
+    mat-row 
+    *matRowDef="let row; columns: displayedColumns;"
+  ></tr>
+</table>
+
+<mat-paginator 
+  [length]="1000"
+  [pageSize]="10"
+  aria-label="Select page"
+  (page)="pageChanged($event)"
+  [disabled]="paginationDisabled"
+></mat-paginator>

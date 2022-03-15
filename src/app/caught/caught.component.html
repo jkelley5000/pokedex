@@ -1,0 +1,38 @@
+<p>
+  Pokemon I've caught!
+  <mat-icon
+    matTooltip="Add Pokemon to your caught list by clicking the add icon in the Pokemon main list."
+    matTooltipPosition="right"
+  >
+    info
+  </mat-icon>
+</p>
+
+<mat-list>
+  <mat-list-item *ngIf="caughtList.length === 0">
+    <p>
+      Add Pokemon to your caught list by clicking the add icon in the 
+      <a [routerLink]="['/pokemon']">Pokemon</a> 
+      main list.
+    </p>
+  </mat-list-item>
+  <mat-list-item 
+    [routerLink]="['/stats/', pokemon]"
+    *ngFor="let pokemon of caughtList"
+  >
+    <mat-icon
+      matTooltip="View {{ pokemon }} stats"
+      matTooltipPosition="right"
+    >
+      insert_chart_outlined
+    </mat-icon>
+    {{ pokemon }}
+  </mat-list-item>
+</mat-list>
+
+<!-- <p>Select from list below to add to Caught List</p>
+<mat-selection-list dense>
+  <mat-list-option *ngFor="let pokemon of allPokemon">
+    {{ pokemon.name }}
+  </mat-list-option>
+</mat-selection-list> -->
